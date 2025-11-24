@@ -11,7 +11,7 @@ Ce projet met en avant l’orchestration d’un service temps réel sur Kubernet
 
 ## Liens utiles
 
-- 🎮 [Adresse du serveur (temporaire)](minecraft.lumitek.fr)
+- 🎮 Adresse du serveur (temporaire): minecraft.lumitek.fr
 - 🌐 [Adresse du portfolio en ligne](https://lumitek.fr)
 - ☁️ [Mon Projet Cloud](https://cloud.lumitek.fr/s/tFfkts7BwxtGiBm)
 - 💼 [Mon profil LinkedIn](https://www.linkedin.com/in/luclouisdelorme/)  
