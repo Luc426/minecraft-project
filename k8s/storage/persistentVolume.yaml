@@ -1,0 +1,22 @@
+# ================================================
+# Kubernetes Manifest for the Minecraft Server
+# Author   : Lumitek
+# Date     : 2025-11-13
+# Description:
+#   This manifest contains the following configurations:
+#   - The Minecraft Server Persistent Volume
+# ================================================
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minecraft-server-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: "${NFS_SERVER}"
+    path: "${NFS_WORKDIR}"
+---

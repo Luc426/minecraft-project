@@ -1,0 +1,22 @@
+# ================================================
+# Kubernetes Manifest for the Minecraft Project
+# Author   : Lumitek
+# Date     : 2025-11-13
+# Description:
+#   This manifest contains the following configurations:
+#   - The Minecraft Server Service
+# ================================================
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: minecraft-svc
+spec:
+  allocateLoadBalancerNodePorts: false
+  ports:
+  - port: 25565
+    protocol: TCP
+    targetPort: 25565
+  type: LoadBalancer
+---

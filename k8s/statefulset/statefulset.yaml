@@ -1,0 +1,65 @@
+# ================================================
+# Kubernetes Manifest for the Minecraft Project
+# Author   : Lumitek
+# Date     : 2025-11-13
+# Description:
+#   This manifest contains the following configurations:
+#   - The Minecraft Server StatefulSet
+# ================================================
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minecraft-server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      creationTimestamp: null
+    spec: 
+      volumes:
+      - name: minecraft-data
+        persistentVolumeClaim:
+          claimName: minecraft-server-pvc
+      containers:
+      - image: itzg/minecraft-server
+        name: minecraft
+        securityContext: 
+          runAsUser: 1000
+          runAsGroup: 1000
+        env: 
+        - name: EULA
+          value: "TRUE"
+        - name: DIFFICULTY
+          value: "normal"
+        - name: MAX_PLAYERS
+          value: "10"
+        - name: MODE
+          value: "survival"
+        - name: VIEW_DISTANCE
+          value: "20"
+        - name: SIMULATION_DISTANCE
+          value: "10"
+        - name: USE_AIKAR_FLAGS
+          value: "true"
+        - name: USE_G1GC
+          value: "true"
+        - name: MEMORY
+          value: "4G"
+        - name: OVERRIDE_SERVER_PROPERTIES
+          value: "true"
+        ports:
+        - containerPort: 25565
+          name: minecraft
+          protocol: TCP
+        volumeMounts:
+        - name: minecraft-data
+          mountPath: /data
+        resources:
+          requests:
+            memory: "4Gi"
+            cpu: "1500m"
+          limits:
+            memory: "5Gi"
+            cpu: "2500m"
+---
